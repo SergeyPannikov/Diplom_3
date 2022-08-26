@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestRegistration
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.888 s - in TestRegistration
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.417 s - in TestRegistration

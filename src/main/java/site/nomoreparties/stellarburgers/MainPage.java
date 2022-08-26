@@ -64,7 +64,7 @@ public class MainPage {
 
     @Step("Клик на секцию Булки в Конструкторе")
     public void clickSectionBunInConstructor() {
-        sectionBunInConstructor.click();
+        sectionBunInConstructor.doubleClick();
     }
 
     @Step("Клик на секцию Соусы в Конструкторе")
