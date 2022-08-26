@@ -1,4 +1,4 @@
-import api.apiForUserAccount;
+import api.ApiForUserAccount;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.junit4.DisplayName;
@@ -20,7 +20,7 @@ public class TestConstructor {
 //        чтобы запустить в Яндексе надо расскоментировать строку ниже
 //        System.setProperty("webdriver.chrome.driver", "D://Yandex//bin//yandexdriver.exe");
         Configuration.startMaximized = true;
-        RestAssured.baseURI = apiForUserAccount.BASEURI;
+        RestAssured.baseURI = ApiForUserAccount.BASEURI;
         mainPage = open(MainPage.MAINPAGE_URL, MainPage.class);
     }
 
@@ -35,7 +35,7 @@ public class TestConstructor {
         mainPage.clickSectionSauceInConstructor();
         mainPage.clickSectionBunInConstructor();
         boolean checkIsDisplayed = mainPage.checkHeaderBunSectionInConstructor();
-        Assert.assertEquals(true,checkIsDisplayed);
+        Assert.assertEquals(true, checkIsDisplayed);
     }
 
     @DisplayName("Проверка успешного перехода на раздел Соусы")
@@ -44,7 +44,7 @@ public class TestConstructor {
         mainPage.clickSectionFillingInConstructor();
         mainPage.clickSectionSauceInConstructor();
         boolean checkIsDisplayed = mainPage.checkHeaderSauceSectionInConstructor();
-        Assert.assertEquals(true,checkIsDisplayed);
+        Assert.assertEquals(true, checkIsDisplayed);
     }
 
     @DisplayName("Проверка успешного перехода на раздел Начинки")
@@ -52,6 +52,6 @@ public class TestConstructor {
     public void testSuccessMoveToFillingSection() {
         mainPage.clickSectionFillingInConstructor();
         boolean checkIsDisplayed = mainPage.checkHeaderFillingSectionInConstructor();
-        Assert.assertEquals(true,checkIsDisplayed);
+        Assert.assertEquals(true, checkIsDisplayed);
     }
 }

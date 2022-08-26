@@ -2,13 +2,13 @@ package site.nomoreparties.stellarburgers;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.conditions.Visible;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Condition.visible;
 
 public class MainPage {
-
     public final static String MAINPAGE_URL = "https://stellarburgers.nomoreparties.site/";
 
     //локатор кнопки Войти в аккаунт, когда не авторизирован
@@ -42,44 +42,53 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = ".//h2[text()='Соусы']")
     private SelenideElement headerSauceSectionInConstructor;
 
-    public void clickButtonSighIn(){
+    @Step("Клик на кнопку Войти")
+    public void clickButtonSighIn() {
         buttonSighIn.click();
     }
 
-    public void clickLinkToAccount(){
+    @Step("Клик на линк Личный кабинет")
+    public void clickLinkToAccount() {
         linkToAccount.click();
     }
 
-    public void clickLinkToMainPageFromLogoImage(){
+    @Step("Клик на лого Стеллар Бургер")
+    public void clickLinkToMainPageFromLogoImage() {
         linkToMainPageFromLogoImage.click();
     }
 
-    public void clickLinkToMainPageFromConstructor(){
+    @Step("Клик на Конструктор")
+    public void clickLinkToMainPageFromConstructor() {
         linkToMainPageFromConstructor.click();
     }
 
-    public void clickSectionBunInConstructor(){
+    @Step("Клик на секцию Булки в Конструкторе")
+    public void clickSectionBunInConstructor() {
         sectionBunInConstructor.click();
     }
 
-    public void clickSectionSauceInConstructor(){
+    @Step("Клик на секцию Соусы в Конструкторе")
+    public void clickSectionSauceInConstructor() {
         sectionSauceInConstructor.click();
     }
 
-    public void clickSectionFillingInConstructor(){
+    @Step("Клик на секцию Начинки в Конструкторе")
+    public void clickSectionFillingInConstructor() {
         sectionFillingInConstructor.click();
     }
 
-    public boolean checkHeaderFillingSectionInConstructor(){
+    @Step("Проверка отображения хедера Начинки в списке ингридиентов")
+    public boolean checkHeaderFillingSectionInConstructor() {
         return headerFillingSectionInConstructor.isDisplayed();
     }
 
-    public boolean checkHeaderBunSectionInConstructor(){
+    @Step("Проверка отображения хедера Булки в списке ингридиентов")
+    public boolean checkHeaderBunSectionInConstructor() {
         return headerBunSectionInConstructor.isDisplayed();
     }
 
-    public boolean checkHeaderSauceSectionInConstructor(){
+    @Step("Проверка отображения хедера Соусы в списке ингридиентов")
+    public boolean checkHeaderSauceSectionInConstructor() {
         return headerSauceSectionInConstructor.isDisplayed();
     }
-
 }

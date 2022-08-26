@@ -2,6 +2,7 @@ package site.nomoreparties.stellarburgers;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -20,20 +21,23 @@ public class LoginPage {
     @FindBy(how = How.XPATH, using = ".//button[text()='Войти']")
     private SelenideElement buttonLogin;
 
-    public void enterLoginEmailField(String loginEmail){
+    @Step("Ввод емейла ")
+    public void enterLoginEmailField(String loginEmail) {
         loginEmailField.val(loginEmail);
     }
 
-    public void enterLoginPasswordField(String loginPassword){
+    @Step("Ввод пароля")
+    public void enterLoginPasswordField(String loginPassword) {
         loginPasswordField.val(loginPassword);
     }
 
-    public void clickButtonLogin(){
+    @Step("Клик на кнопку Войти")
+    public void clickButtonLogin() {
         buttonLogin.click();
     }
 
-    public void waitButtonLoginIsVisible(){
+    @Step("Ожидание отображения кнопки Войти")
+    public void waitButtonLoginIsVisible() {
         buttonLogin.shouldBe(visible);
     }
-
 }

@@ -1,6 +1,7 @@
 package site.nomoreparties.stellarburgers;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -11,7 +12,8 @@ public class AccountPage {
     @FindBy(how = How.XPATH, using = ".//button[@type='button'and text()='Выход']")
     private SelenideElement buttonLogOut;
 
-    public void clickButtonLogOut(){
+    @Step("Клик на кнопку Выход")
+    public void clickButtonLogOut() {
         buttonLogOut.click();
     }
 }

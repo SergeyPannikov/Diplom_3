@@ -1,14 +1,17 @@
 package api;
 
+import io.qameta.allure.Step;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class apiForUserAccount {
+public class ApiForUserAccount {
 
     public static String accessToken;
     public final static String BASEURI = "https://stellarburgers.nomoreparties.site";
     public static UserAccount userAccount;
 
+    @Step("Удаление юзера")
     public static void deleteUser(String email, String password){
         if (given().header("Content-type", "application/json").
                 and().body(userAccount).when().post("api/auth/login").then().extract().statusCode() == 200) {
@@ -18,6 +21,7 @@ public class apiForUserAccount {
         }
     }
 
+    @Step("Получение токена клиента")
     public static void getAccessToken(String email, String password){
         if (getStatusCode(email,password) == 200) {
             String accessTokenString = given().header("Content-type", "application/json").
@@ -26,12 +30,14 @@ public class apiForUserAccount {
         }
     }
 
+    @Step("Получение кода ответа ")
     public static int getStatusCode(String email, String password){
         userAccount = new UserAccount(email,password);
        return given().header("Content-type", "application/json").
                 and().body(userAccount).when().post("api/auth/login").then().extract().statusCode();
     }
 
+    @Step("Создание юзера через апи")
     public static void CreateUser(String name, String email, String password){
         userAccount = new UserAccount(email,password,name);
         given().header("Content-type", "application/json").

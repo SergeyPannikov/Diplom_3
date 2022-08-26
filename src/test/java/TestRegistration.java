@@ -1,4 +1,4 @@
-import api.apiForUserAccount;
+import api.ApiForUserAccount;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.junit4.DisplayName;
@@ -25,13 +25,13 @@ public class TestRegistration {
 //        чтобы запустить в Яндексе надо расскоментировать строку ниже
 //        System.setProperty("webdriver.chrome.driver", "D://Yandex//bin//yandexdriver.exe");
         Configuration.startMaximized = true;
-        RestAssured.baseURI = apiForUserAccount.BASEURI;
+        RestAssured.baseURI = ApiForUserAccount.BASEURI;
         registerPage = open(RegisterPage.REGISTERPAGE_URL, RegisterPage.class);
     }
 
     @After
     public void deleteUser() {
-        apiForUserAccount.deleteUser(email,password);
+        ApiForUserAccount.deleteUser(email, password);
         WebDriverRunner.closeWebDriver();
     }
 
@@ -42,8 +42,8 @@ public class TestRegistration {
         registerPage.enterLoginFieldEmail(email);
         registerPage.enterLoginPassword(password);
         registerPage.clickOnButtonRegistration();
-        statusCode = apiForUserAccount.getStatusCode(email,password);
-        Assert.assertEquals(200,statusCode);
+        statusCode = ApiForUserAccount.getStatusCode(email, password);
+        Assert.assertEquals(200, statusCode);
     }
 
     @DisplayName("Проверка неверного ввода пароля на странице регистрации")
@@ -52,7 +52,7 @@ public class TestRegistration {
         registerPage.enterLoginFieldName("Test Burger");
         registerPage.enterLoginPassword("passw");
         registerPage.enterLoginFieldEmail("teststellarburger@yandex.ru");
-        String error =registerPage.errorWhenIncorrectPassword();
-        Assert.assertEquals("Некорректный пароль",error);
+        String error = registerPage.errorWhenIncorrectPassword();
+        Assert.assertEquals("Некорректный пароль", error);
     }
 }
